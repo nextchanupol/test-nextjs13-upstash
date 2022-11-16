@@ -1,11 +1,11 @@
-"use client";
+"use client";;
 import React from "react";
 import useSWR from "swr";
 import { Message } from "../typings";
 import fetcher from "../utils/fetchMessages";
 import MessageComponent from "./MessageComponent";
 
-function MessageList() {
+const MessageList = () => {
   const {
     data: messages,
     error,
@@ -18,6 +18,6 @@ function MessageList() {
       ))}
     </div>
   );
-}
+};
 
 export default MessageList;

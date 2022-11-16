@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import LogoutButton from "./LogoutButton";
 
-function Header() {
+const Header = () => {
   const session = true;
 
   if (session) {
@@ -50,6 +50,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

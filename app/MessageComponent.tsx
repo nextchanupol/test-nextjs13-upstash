@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import Image from "next/image";
 import { Message } from "../typings";
 
@@ -7,7 +7,7 @@ type MessageComponentProps = {
   message: Message;
 };
 
-function MessageComponent({ message }: MessageComponentProps) {
+const MessageComponent: FC<MessageComponentProps> = ({ message }) => {
   const isUser = true;
   return (
     <div className={`flex w-fit ${isUser && "ml-auto"} `}>
@@ -24,9 +24,7 @@ function MessageComponent({ message }: MessageComponentProps) {
       <div>
         <p
           className={`text-[0.65rem] px-[2px] py-[2px]  ${
-            isUser
-              ? "text-blue-400 text-right"
-              : "text-neutral-500 text-left"
+            isUser ? "text-blue-400 text-right" : "text-neutral-500 text-left"
           }`}
         >
           {message.username}
@@ -41,13 +39,17 @@ function MessageComponent({ message }: MessageComponentProps) {
             <p>{message.message}</p>
           </div>
 
-          <p className={`text-[0.65rem] italic px-2 text-gray-300 ${isUser && 'text-right'}`}>
+          <p
+            className={`text-[0.65rem] italic px-2 text-gray-300 ${
+              isUser && "text-right"
+            }`}
+          >
             {new Date(message.created_at).toLocaleString()}
           </p>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default MessageComponent;

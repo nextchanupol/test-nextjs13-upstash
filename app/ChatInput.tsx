@@ -1,12 +1,11 @@
-"use client";
-
+"use client";;
 import React, { FormEvent, useState } from "react";
 import useSWR from "swr";
 import { v4 as uuid } from "uuid";
 import { Message } from "../typings";
 import fetcher from "../utils/fetchMessages";
 
-function ChatInput() {
+const ChatInput = () => {
   const [input, setInput] = useState("");
   const { data: messages, error, mutate } = useSWR("api/getMessages", fetcher);
 
@@ -79,6 +78,6 @@ function ChatInput() {
       </button>
     </form>
   );
-}
+};
 
 export default ChatInput;
